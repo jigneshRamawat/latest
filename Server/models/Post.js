@@ -1,3 +1,4 @@
+// Server/models/Post.js
 import mongoose from "mongoose";
 
 const postSchema = new mongoose.Schema({
@@ -5,8 +6,8 @@ const postSchema = new mongoose.Schema({
   description: String,
   image: {
     public_id: String,
-    url: String,
-  },
+    url: String
+  }
 }, { timestamps: true });
 
 export default mongoose.model("Post", postSchema);
