@@ -2,7 +2,8 @@ import React, { useContext, useEffect, useState, useRef } from "react";
 import { userContext } from "../Context/ContextPage";
 import { motion, useInView } from "framer-motion";
 
-const api = "http://localhost:3000";
+// ✅ Updated live backend link
+const api = "https://latest-9qs4.onrender.com";
 
 async function getProject() {
   return await fetch(`${api}/api/project/all`, {
