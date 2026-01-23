@@ -12,30 +12,23 @@ router.post("/", async (req, res) => {
 
   try {
     const transporter = nodemailer.createTransport({
-      service: "gmail", // Direct Gmail service use karein
+      host: "smtp.elasticemail.com",
+      port: 2525, // Elastic email 2525 port use karta hai jo hosting par block nahi hota
       auth: {
         user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASS, // 16-digit App Password
+        pass: process.env.EMAIL_PASS,
       },
     });
 
     await transporter.sendMail({
-      from: `"${name}" <${process.env.EMAIL_USER}>`,
-      replyTo: email,
-      to: process.env.EMAIL_USER,
-      subject: "Hy jignesh sir New Portfolio Contact Message",
-      html: `
-        <div style="font-family: Arial, sans-serif; padding: 20px; border: 1px solid #ddd;">
-          <h2 style="color: #a855f7;">New Message from Portfolio</h2>
-          <p><b>Name:</b> ${name}</p>
-          <p><b>Email:</b> ${email}</p>
-          <p><b>Message:</b></p>
-          <p style="background: #f4f4f4; padding: 10px; border-radius: 5px;">${message}</p>
-        </div>
-      `,
+      from: "jigneshramawat21@gmail.com", // Yahan wahi email dalein jo Elastic email par verify kiya hai
+      to: "jigneshramawat21@gmail.com",
+      subject: `New Portfolio Message from ${name}`,
+      text: `Name: ${name}\nEmail: ${email}\nMessage: ${message}`,
+      html: `<h3>New Message</h3><p><b>Name:</b> ${name}</p><p><b>Email:</b> ${email}</p><p><b>Message:</b> ${message}</p>`,
     });
 
-    res.json({ success: true, message: "Message sent successfully" });
+    res.json({ success: true, message: "Message sent via Elastic Email!" });
   } catch (err) {
     console.error("Nodemailer Error:", err);
     res.status(500).json({ success: false, message: "Email failed", error: err.message });
