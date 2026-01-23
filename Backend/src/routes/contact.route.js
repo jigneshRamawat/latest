@@ -11,24 +11,17 @@ router.post("/", async (req, res) => {
   }
 
   try {
-    // ✅ Render ke liye optimized transporter
     const transporter = nodemailer.createTransport({
-  host: "smtp.gmail.com",
-  port: 587,
-  secure: false, // Port 587 ke liye false hota hai
-  auth: {
-    user: process.env.EMAIL_USER,
-    pass: process.env.EMAIL_PASS,
-  },
-  tls: {
-    rejectUnauthorized: false // Ye hosting connectivity errors ko bypass karta hai
-  },
-  connectionTimeout: 10000, 
-});
+      service: "gmail", // Direct Gmail service use karein
+      auth: {
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASS, // 16-digit App Password
+      },
+    });
 
     await transporter.sendMail({
-      from: `"${name}" <${process.env.EMAIL_USER}>`, // Gmail often overrides 'from', so use this format
-      replyTo: email, // Isse aap jab reply karenge to user ko jayega
+      from: `"${name}" <${process.env.EMAIL_USER}>`,
+      replyTo: email,
       to: process.env.EMAIL_USER,
       subject: "Hy jignesh sir New Portfolio Contact Message",
       html: `
