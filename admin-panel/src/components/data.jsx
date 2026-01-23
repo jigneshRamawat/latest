@@ -7,7 +7,7 @@ const data = () => {
     useEffect(() => {
         const getProject = async () => {
             try {
-                const res = await axios.get("http://localhost:3001/project");
+                const res = await axios.get("https://latest-9qs4.onrender.com/project");
                 console.log(res.data)
                 setProject(res.data)
             } catch (error) {
