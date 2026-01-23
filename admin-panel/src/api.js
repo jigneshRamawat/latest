@@ -1,4 +1,4 @@
-const API = "http://localhost:3000";
+const API = "https://latest-9qs4.onrender.com";
 
 // ---------------- LOGIN ----------------
 export async function loginUser(data) {
