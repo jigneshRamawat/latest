@@ -1,12 +1,12 @@
 import React, { useRef, useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import axios from "axios";
 
 const Contact = () => {
   const [theme, setTheme] = useState(false);
   const pageRef = useRef(null);
   const [show, setShow] = useState(false);
 
+  // Form state
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
@@ -23,8 +23,10 @@ const Contact = () => {
     return () => obs.disconnect();
   }, []);
 
-  const handleSubmit = async (e) => {
+  // ✅ EmailJS HandleSubmit Function
+  const handleSubmit = (e) => {
     e.preventDefault();
+
     if (!name || !email || !message) {
       alert("Please fill all fields");
       return;
@@ -34,25 +36,32 @@ const Contact = () => {
     setSuccess("");
     setError("");
 
-    try {
-      const res = await axios.post(
-        "https://latest-9qs4.onrender.com/api/contact", // ✅ Updated live backend link
-        { name, email, message },
-        { headers: { "Content-Type": "application/json" } }
-      );
+    // Aapki IDs jo aapne screenshot mein bheji thin
+    const serviceID = "service_f2wfw8r";
+    const templateID = "template_9rvk4y8";
+    const publicKey = "3RPFGSiXFV0TXEQll"; 
 
-      if (res.data.success) {
+    const templateParams = {
+      from_name: name,
+      from_email: email,
+      message: message,
+      to_name: "Jignesh Sir",
+    };
+
+    // window.emailjs ka use kar rahe hain kyunki humne index.html mein CDN lagaya hai
+    window.emailjs.send(serviceID, templateID, templateParams, publicKey)
+      .then((response) => {
+        setLoading(false);
         setSuccess("Message sent to Jignesh Sir 🤙🏻");
-        setName(""); setEmail(""); setMessage("");
-      } else {
+        setName(""); 
+        setEmail(""); 
+        setMessage("");
+      })
+      .catch((err) => {
+        setLoading(false);
         setError("Failed to send message 🙅🏻");
-      }
-    } catch (err) {
-      console.error(err);
-      setError("Server error 🫥");
-    } finally {
-      setLoading(false);
-    }
+        console.error("EmailJS Error:", err);
+      });
   };
 
   const fadeUp = {
