@@ -13,18 +13,18 @@ router.post("/", async (req, res) => {
   try {
     // ✅ Render ke liye optimized transporter
     const transporter = nodemailer.createTransport({
-      host: "smtp.gmail.com",
-      port: 465,
-      secure: true, // Port 465 ke liye true rahega
-      auth: {
-        user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASS, // Make sure this is 16-digit App Password
-      },
-      // ✅ Ye timeout errors ko fix karega
-      connectionTimeout: 10000, 
-      greetingTimeout: 10000,
-      socketTimeout: 10000,
-    });
+  host: "smtp.gmail.com",
+  port: 587,
+  secure: false, // Port 587 ke liye false hota hai
+  auth: {
+    user: process.env.EMAIL_USER,
+    pass: process.env.EMAIL_PASS,
+  },
+  tls: {
+    rejectUnauthorized: false // Ye hosting connectivity errors ko bypass karta hai
+  },
+  connectionTimeout: 10000, 
+});
 
     await transporter.sendMail({
       from: `"${name}" <${process.env.EMAIL_USER}>`, // Gmail often overrides 'from', so use this format
