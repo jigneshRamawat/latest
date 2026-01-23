@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 
 // ---------------- API ----------------
-const API = "http://localhost:3000";
+const API = "https://latest-9qs4.onrender.com";
 
 async function loginUser(data) {
   return await fetch(`${API}/api/auth/user/login`, {
