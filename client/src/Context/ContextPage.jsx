@@ -5,7 +5,7 @@ export const userContext = createContext();
 
  const ContextPage = ({children})=> {
 
-      const [theme , setTheme] = useState(false);
+      const [theme , setTheme] = useState(true);
       const [data,setData] = useState([]);
       const toggleTheme = () => setTheme(!theme);
       return(

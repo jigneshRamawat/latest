@@ -1,5 +1,5 @@
 import axios from "axios";
 const API = axios.create({
-    baseURL:"http://localhost:3000",
+    baseURL:"https://portfolio-ashen-alpha-nmvue8pwao.vercel.app",
 })
 export default API;
