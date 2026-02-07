@@ -90,7 +90,7 @@ const Home = () => {
         >
           <a href="https://www.linkedin.com/in/jignesh-ramawat-47b14121a/"> <i className={`${theme ? "text-purple-400" : "text-gray-950"} hover:text-purple-300 ri-linkedin-fill text-2xl bg-gray-100 rounded-full p-2`}></i></a>
           <a href="https://github.com/jigneshRamawat"> <i className={`${theme ? "text-purple-400" : "text-gray-950"} ri-github-fill hover:text-purple-300 text-2xl bg-gray-100 rounded-full p-2`}></i></a>
-          <a href="https://portfolio-1c7l.vercel.app"> <i className={`${theme ? "text-purple-400" : "text-gray-950"} ri-creative-commons-by-line text-2xl bg-gray-100 rounded-full hover:text-purple-300 p-2`}></i></a>
+          <a href="https://leetcode.com/u/IKDzYSP0Ci"> <i className={`${theme ? "text-purple-400" : "text-gray-950"} ri-creative-commons-by-line text-2xl bg-gray-100 rounded-full hover:text-purple-300 p-2`}></i></a>
         </motion.div>
 
 
