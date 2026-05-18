@@ -69,7 +69,7 @@ const Home = () => {
           transition={{ delay: 0.3 }}
           className="button pt-10 justify-center items-center text-center flex gap-5"
         >
-          <a href="https://drive.google.com/file/d/1JI3u-5TbOGsJD-CYvac4CehXK1Vrcuxj/view?usp=sharing"><button className="hover:bg-purple-200 hover:text-black transition-all duration-300 ease-in-out p-3.5 font-serif bg-transparent border-purple-300 border-2 rounded-2xl cursor-pointer text-purple-300">
+          <a href="https://drive.google.com/file/d/1GbQVkkyRJOhY4neA8l5NfYutVCZ6AsRt/view?usp=sharing"><button className="hover:bg-purple-200 hover:text-black transition-all duration-300 ease-in-out p-3.5 font-serif bg-transparent border-purple-300 border-2 rounded-2xl cursor-pointer text-purple-300">
             Download CV
           </button></a>
 
