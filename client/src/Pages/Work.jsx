@@ -1,6 +1,7 @@
 import React, { useContext, useRef } from 'react';
 import spect from '../img/spect.png';
 import delta from '../img/delta.jpg';
+import collegedekho from '../img/collage.webp';
 import { userContext } from '../Context/ContextPage';
 import { motion, useInView } from 'framer-motion';
 
@@ -33,22 +34,23 @@ const Work = () => {
             <img className="w-24 md:w-32 pb-10 rounded-full" src={spect} alt="" />
           </div>
 
-          <div className="pra text-center">
+          <div className="pra text-center ">
             <h2 className="text-xl md:text-2xl">Spectrics Solutions PVT LTD, Ahmedabad</h2>
             <p className="text-lg md:text-xl">React.js Developer Internship Aug 2023 - Feb 2024</p>
           </div>
+          <div className="flex flex-col justify-center items-center">
+            <p className="pt-2 text-sm md:text-base">
+              Developing scalable UI components using React.js, React Bootstrap, and PrimeReact.
+            </p>
+            <p className="text-sm md:text-base">
+              Handled state management and integrated REST APIs.
+            </p>
+            <p className="pt-2 text-sm md:text-base">
+              Built interactive admin dashboards with charts and tables.
+            </p>
 
-          <p className="pt-2 text-sm md:text-base">
-            Developing scalable UI components using React.js, React Bootstrap, and PrimeReact.
-          </p>
-          <p className="text-sm md:text-base">
-            Handled state management and integrated REST APIs.
-          </p>
-          <p className="pt-2 text-sm md:text-base">
-            Built interactive admin dashboards with charts and tables.
-          </p>
-
-          <h4 className="mt-3 text-sm md:text-base">Skills - React, Redux, JavaScript, SCSS, Bootstrap</h4>
+            <h4 className="mt-3 text-sm md:text-base">Skills - React, Redux, JavaScript, SCSS, Bootstrap</h4>
+          </div>
         </motion.div>
 
         <motion.div
@@ -66,18 +68,49 @@ const Work = () => {
             <h2 className="text-xl md:text-2xl">DELAWARE SOLUTIONS PRIVATE LIMITED - Uttar Pradesh</h2>
             <p className="text-lg md:text-xl">MERN Stack Developer Intern May 2025 - Oct 2025</p>
           </div>
+          <div className="flex flex-col justify-center items-center">
+            <p className="pt-2 text-sm md:text-base">
+              Designed and implemented user and admin panels with clean UX.
+            </p>
+            <p className="text-sm md:text-base">Contributed to project deployment.</p>
+            <p className="pt-2 text-sm md:text-base">
+              Built dashboards with real-time data using charts.
+            </p>
 
-          <p className="pt-2 text-sm md:text-base">
-            Designed and implemented user and admin panels with clean UX.
-          </p>
-          <p className="text-sm md:text-base">Contributed to project deployment.</p>
-          <p className="pt-2 text-sm md:text-base">
-            Built dashboards with real-time data using charts.
-          </p>
+            <h4 className="mt-3 text-sm md:text-base">
+              Skills - React, Context API, JavaScript, Tailwind, Bootstrap, Framer Motion, Node.js, Express.js, MongoDB
+            </h4>
+          </div>
+        </motion.div>
+        <motion.div
+          ref={card2Ref}
+          initial={{ opacity: 0, y: 100 }}
+          animate={{ opacity: card2InView ? 1 : 0, y: card2InView ? 0 : 100 }}
+          transition={{ duration: 0.8, delay: 0.3 }}
+          className={`${theme ? "text-white" : "text-black"} backdrop-blur-3xl p-6 mt-5 mb-5 md:p-10 rounded-4xl bg-purple-400/15 shadow-white shadow-2xs flex flex-col align-middle w-full md:w-[80%] lg:w-[70%]`}
+        >
+          <div className="imgwrap w-full flex justify-center">
+            <img className="w-24 md:w-32 pb-10 rounded-full" src={collegedekho} alt="" />
+          </div>
 
-          <h4 className="mt-3 text-sm md:text-base">
-            Skills - React, Context API, JavaScript, Tailwind, Bootstrap, Framer Motion, Node.js, Express.js, MongoDB
-          </h4>
+          <div className="pra text-center">
+            <h2 className="text-xl md:text-2xl">collegedekho Private Limited Jaipur (Work from office)</h2>
+            <p className="text-lg md:text-xl">Full Stack Developer Intern May - 2026 to Currently Working</p>
+          </div>
+          <div className="flex flex-col justify-center items-center">
+            <p className="pt-2 text-sm md:text-base">
+              Collaborated with team members in an agile development environment and improved communication and teamwork skills
+            </p>
+            <p className="text-sm md:text-base">Learned and implemented REST API development, API integration, and backend fundamentals in real-world projects.</p>
+            <p className="pt-2 text-sm md:text-base">
+              Strengthened understanding of core web development fundamentals including authentication, routing, CRUD operations,
+              and database management.
+            </p>
+
+            <h4 className="mt-3 text-sm md:text-base">
+              Skills - React, Context API, JavaScript, Tailwind, Bootstrap, Framer Motion, Node.js, Express.js, MongoDB
+            </h4>
+          </div>
         </motion.div>
 
       </div>
