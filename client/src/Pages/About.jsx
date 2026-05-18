@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useRef, useState } from "react";
 import { userContext } from "../Context/ContextPage";
 import { motion } from "framer-motion";
 import myPhoto from "../img/my3.jpg";
-import { GitHubCalendar } from "react-github-calendar";
+import GitHubCalendar from "react-github-calendar";
 
 
 const GH_USER = "jigneshRamawat";
